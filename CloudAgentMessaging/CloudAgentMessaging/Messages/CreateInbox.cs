@@ -3,10 +3,11 @@ using AgentFramework.Core.Messages;
 
 namespace CloudAgentRouting.Messages
 {
-    public class GetMessagesRequest : AgentMessage
+    public class CreateInbox : AgentMessage
     {
-        public GetMessagesRequest()
+        public CreateInbox()
         {
+            Type = "create_inbox";
         }
     }
 }

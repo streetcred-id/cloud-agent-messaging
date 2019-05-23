@@ -9,5 +9,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Messages\" />
+    <Folder Include="Services\" />
+    <Folder Include="Handlers\" />
   </ItemGroup>
 </Project>

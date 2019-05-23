@@ -7,6 +7,9 @@ namespace CloudAgentRouting.Messages
     {
         public GetMessagesResponse()
         {
+            Type = "get_messages_response";
         }
+
+        public string[] Messages { get; set; }
     }
 }
