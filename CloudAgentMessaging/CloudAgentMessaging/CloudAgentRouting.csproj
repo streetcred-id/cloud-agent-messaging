@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AgentFramework.Core.Handlers" Version="3.0.2" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Messages\" />
     <Folder Include="Services\" />
     <Folder Include="Handlers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AgentFramework.AspNetCore" Version="4.0.0-preview.647" />
   </ItemGroup>
 </Project>

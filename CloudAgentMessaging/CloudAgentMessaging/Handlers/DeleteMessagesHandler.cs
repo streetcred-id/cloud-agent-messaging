@@ -17,9 +17,9 @@ namespace CloudAgentRouting.Handlers
             _inboxService = inboxService;
         }
 
-        protected override async Task<AgentMessage> ProcessAsync(DeleteMessages message, IAgentContext agentContext)
+        protected override async Task<AgentMessage> ProcessAsync(DeleteMessages message, IAgentContext agentContext, MessageContext messageContext)
         {
-            await _inboxService.DeleteMessagesAsync(agentContext, message);
+            await _inboxService.DeleteMessagesAsync(agentContext, messageContext, message);
             return null;
         }
     }

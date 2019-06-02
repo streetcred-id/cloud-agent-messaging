@@ -17,9 +17,9 @@ namespace CloudAgentRouting.Handlers
             _inboxService = inboxService;
         }
 
-        protected override async Task<AgentMessage> ProcessAsync(AddInboxDevice message, IAgentContext agentContext)
+        protected override async Task<AgentMessage> ProcessAsync(AddInboxDevice message, IAgentContext agentContext, MessageContext messageContext)
         {
-            await _inboxService.AddDeviceAsync(agentContext, message);
+            await _inboxService.AddDeviceAsync(agentContext, messageContext, message);
             return null;
         }
     }

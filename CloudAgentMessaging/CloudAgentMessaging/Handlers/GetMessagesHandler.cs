@@ -17,9 +17,10 @@ namespace CloudAgentRouting.Handlers
             _inboxService = inboxService;
         }
 
-        protected override async Task<AgentMessage> ProcessAsync(GetMessages message, IAgentContext agentContext)
+        /// <inheritdoc />
+        protected override async Task<AgentMessage> ProcessAsync(GetMessages message, IAgentContext agentContext, MessageContext messageContext)
         {
-            return await _inboxService.GetMessagesAsync(agentContext, message);
+            return await _inboxService.GetMessagesAsync(agentContext, messageContext, message);
         }
     }
 }

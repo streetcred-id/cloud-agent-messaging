@@ -1,4 +1,5 @@
 ﻿using System;
+using AgentFramework.AspNetCore;
 using CloudAgentRouting.Handlers;
 using CloudAgentRouting.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,8 +9,10 @@ namespace CloudAgentRouting
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddAgentInbox(this IServiceCollection collection)
+        public static void AddInbox(this AgentBuilder builder)
         {
+            var collection = builder.Services;
+
             collection.TryAddSingleton<IInboxService, MemoryInboxService>();
 
             collection.TryAddSingleton<ForwardMessageHandler>();
@@ -20,9 +23,11 @@ namespace CloudAgentRouting
             collection.TryAddSingleton<DeleteMessagesHandler>();
         }
 
-        public static void AddAgentInbox<T>(this IServiceCollection collection)
+        public static void AddInbox<T>(this AgentBuilder builder)
             where T : class, IInboxService
         {
+            var collection = builder.Services;
+
             collection.TryAddSingleton<IInboxService, T>();
 
             collection.TryAddSingleton<ForwardMessageHandler>();

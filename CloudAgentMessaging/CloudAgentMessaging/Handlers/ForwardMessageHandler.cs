@@ -8,6 +8,9 @@ using CloudAgentRouting.Services;
 
 namespace CloudAgentRouting.Handlers
 {
+    /// <summary>
+    /// Handler for unpacking forward messages
+    /// </summary>
     public class ForwardMessageHandler : MessageHandlerBase<ForwardMessage>
     {
         private readonly IInboxService _inboxService;
@@ -17,15 +20,10 @@ namespace CloudAgentRouting.Handlers
             _inboxService = inboxService;
         }
 
-        /// <summary>
-        /// Process incoming forward message
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="agentContext"></param>
-        /// <returns></returns>
-        protected override async Task<AgentMessage> ProcessAsync(ForwardMessage message, IAgentContext agentContext)
+        /// <inheritdoc />
+        protected override async Task<AgentMessage> ProcessAsync(ForwardMessage message, IAgentContext agentContext, MessageContext messageContext)
         {
-            await _inboxService.ForwardAsync(message.Message, message.To, agentContext);
+            await _inboxService.ForwardAsync(message.Message, message.To, agentContext, messageContext);
             return null;
         }
     }
